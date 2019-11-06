@@ -1,4 +1,5 @@
-import Array from './model/Array.js'
+import Array from './scripts/model/Array.js'
+import ArrayView from './scripts/view/ArrayView.js'
 
 let width = 1800;
 let height = 600;
@@ -11,20 +12,6 @@ let array = new Array(300);
 console.log();
 
 
-function drawArray(array) {
-    //console.log(array.array.length);
-    for (let i = 0; i < array.array.length; i++) {
-        //console.log(array.array[i]);
-        drawObject(array.array[i], array.array.length, i);
-    }
-}
+let arrayView = new ArrayView(array, sortingCanvas, width, height);
 
-function drawObject(object, size, xpos) {
-    context.fillStyle = object.color;
-    let dx = width / size;
-    let dy = (object.value + 1) / size * height;
-    let x = xpos * dx;
-    context.fillRect(x,0,dx,dy);
-}
-
-drawArray(array);
+arrayView.drawArray();
