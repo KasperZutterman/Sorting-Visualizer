@@ -3,6 +3,7 @@ import ArrayView from './scripts/view/ArrayView.js'
 import SelectionSort from './scripts/model/algorithms/SelectionSort.js'
 import InsertionSort from './scripts/model/algorithms/InsertionSort.js'
 import BubbleSort from './scripts/model/algorithms/BubbleSort.js'
+import HeapSort from './scripts/model/algorithms/HeapSort.js'
 
 let width = 1800;
 let height = 600;
@@ -19,7 +20,8 @@ arrayView.drawArray();
 
 //let sortAlgorithm = new SelectionSort(array);
 //let sortAlgorithm = new InsertionSort(array);
-let sortAlgorithm = new BubbleSort(array);
+//let sortAlgorithm = new BubbleSort(array);
+let sortAlgorithm = new HeapSort(array);
 
 let btnStep = document.getElementById("btnStep");
 btnStep.addEventListener("click", (e) => {
