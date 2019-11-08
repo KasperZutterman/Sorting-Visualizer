@@ -10,6 +10,7 @@ export default class ArrayView {
         }
         
         drawArray() {
+            this.clearCanvas();
             for (let i = 0; i < this.array.array.length; i++) {
                 this.drawObject(this.array.array[i], this.array.array.length, i);
             }
@@ -21,6 +22,10 @@ export default class ArrayView {
             let dy = (object.value + 1) / size * this.height;
             let x = xpos * dx;
             this.context.fillRect(x,0,dx,dy);
+        }
+        
+        clearCanvas() {
+            this.context.clearRect(0, 0, this.width, this.height);
         }
 }
 

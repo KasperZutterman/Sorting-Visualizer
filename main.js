@@ -1,5 +1,6 @@
 import Array from './scripts/model/Array.js'
 import ArrayView from './scripts/view/ArrayView.js'
+import SelectionSort from './scripts/model/algorithms/SelectionSort.js'
 
 let width = 1800;
 let height = 600;
@@ -15,3 +16,12 @@ console.log();
 let arrayView = new ArrayView(array, sortingCanvas, width, height);
 
 arrayView.drawArray();
+
+let sortAlgorithm = new SelectionSort(array);
+
+let btnStep = document.getElementById("btnStep");
+btnStep.addEventListener("click", (e) => {
+    sortAlgorithm.sortStep();
+    //sortAlgorithm.sort();
+    arrayView.drawArray();
+});
