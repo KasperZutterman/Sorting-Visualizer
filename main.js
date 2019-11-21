@@ -4,6 +4,7 @@ import SelectionSort from './scripts/model/algorithms/SelectionSort.js'
 import InsertionSort from './scripts/model/algorithms/InsertionSort.js'
 import BubbleSort from './scripts/model/algorithms/BubbleSort.js'
 import HeapSort from './scripts/model/algorithms/HeapSort.js'
+import QuickSort from './scripts/model/algorithms/QuickSort.js'
 
 let width = 1800;
 let height = 600;
@@ -21,7 +22,8 @@ arrayView.drawArray();
 //let sortAlgorithm = new SelectionSort(array);
 //let sortAlgorithm = new InsertionSort(array);
 //let sortAlgorithm = new BubbleSort(array);
-let sortAlgorithm = new HeapSort(array);
+//let sortAlgorithm = new HeapSort(array);
+let sortAlgorithm;// = new QuickSort(array);
 
 let btnStep = document.getElementById("btnStep");
 btnStep.addEventListener("click", (e) => {
@@ -46,6 +48,12 @@ btnPause.addEventListener("click", (e) => {
     btnStep.disabled = false;
 });
 
+let algoSelect = document.getElementById("algoSelect");
+algoSelect.addEventListener("change", (e) => {
+    let algo = algoSelect.options[algoSelect.selectedIndex].value;
+    setAlgorithm(algo);
+});
+
 function sortStep() {
     sortAlgorithm.sortStep();
     //sortAlgorithm.sort();
@@ -55,6 +63,24 @@ function sortStep() {
 function init() {
     btnPause.disabled = true;
     btnPlay.disabled = false;
+    setAlgorithm("insertion");
 }
 
+function setAlgorithm(algo) {
+    if (algo === "insertion") {
+        sortAlgorithm = new SelectionSort(array);
+    }
+    else if (algo === "selection") {
+        sortAlgorithm = new InsertionSort(array);
+    }
+    else if (algo === "bubble") {
+        sortAlgorithm = new BubbleSort(array);
+    }
+    else if (algo === "heap") {
+        sortAlgorithm = new HeapSort(array);
+    }
+    else if (algo === "quick") {
+        sortAlgorithm = new QuickSort(array);
+    }
+}
 init();
