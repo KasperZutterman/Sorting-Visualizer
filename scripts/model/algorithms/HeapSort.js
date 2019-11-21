@@ -10,6 +10,8 @@ export default class HeapSort {
         
         swap(firstIndex, secondIndex){
             [this.array[firstIndex], this.array[secondIndex]] = [this.array[secondIndex], this.array[firstIndex]];
+            this.array[firstIndex].counter = 1;
+            this.array[secondIndex].counter = 1;
         }
         
         sort(){
@@ -43,6 +45,7 @@ export default class HeapSort {
         }
         
         heapify(length, i) {
+            this.updateColor();
             let left = 2 * i + 1;
             let right = 2 * i + 2;
             let max = i;
@@ -58,6 +61,19 @@ export default class HeapSort {
             if (max != i) {
                 this.swap(i, max);
                 this.heapify(length, max);
+            }
+        }
+        
+        updateColor() {
+            for (let i = 0; i < this.array.length; i++) {
+                if (this.array[i].counter != 0 && this.array[i].counter < 5) {
+                    this.array[i].counter++
+                    this.array[i].setColor();
+                }
+                else {
+                    this.array[i].counter = 0;
+                    this.array[i].setColor();
+                }
             }
         }
 }
