@@ -23,7 +23,7 @@ arrayView.drawArray();
 //let sortAlgorithm = new InsertionSort(array);
 //let sortAlgorithm = new BubbleSort(array);
 //let sortAlgorithm = new HeapSort(array);
-let sortAlgorithm = new QuickSort(array);
+let sortAlgorithm;// = new QuickSort(array);
 
 let btnStep = document.getElementById("btnStep");
 btnStep.addEventListener("click", (e) => {
